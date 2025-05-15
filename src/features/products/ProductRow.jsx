@@ -1,7 +1,7 @@
 import { Eye, Pencil, Trash2 } from "lucide-react";
 
 import Modal from "../../ui/Modal";
-import Button from "../../ui/button";
+import Button from "../../ui/Button";
 import ViewProduct from "./ViewProduct";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 
