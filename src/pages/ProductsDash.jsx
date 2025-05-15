@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
 
-import Button from "../ui/button";
+import Button from "../ui/Button";
 import Heading from "../ui/Heading";
 import ProductsTable from "../features/products/ProductsTable";
 
