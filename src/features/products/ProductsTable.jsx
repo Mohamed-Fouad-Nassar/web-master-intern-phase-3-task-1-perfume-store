@@ -1,4 +1,4 @@
-import Table from "../../ui/table";
+import Table from "../../ui/Table";
 import ProductRow from "./ProductRow";
 
 const products = [
