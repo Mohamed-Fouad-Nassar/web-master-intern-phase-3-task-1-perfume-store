@@ -1,22 +1,15 @@
-import FormRow from "./FormRow";
+import Input from "./Input";
 import Button from "./Button";
+import FormRow from "./FormRow";
 
 export default function ContactForm() {
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <FormRow label="Name" error={""}>
-        <input
-          id="name"
-          type="text"
-          className="px-2.5 py-1.5 border border-stone-600 rounded outline-none focus:border-main"
-        />
+        <Input id="name" type="text" />
       </FormRow>
       <FormRow label="Email" error={""}>
-        <input
-          id="email"
-          type="email"
-          className="px-2.5 py-1.5 border border-stone-600 rounded outline-none focus:border-main"
-        />
+        <Input id="email" type="email" />
       </FormRow>
       <FormRow label="Message" error={""}>
         <textarea

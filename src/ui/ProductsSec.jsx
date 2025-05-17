@@ -1,42 +1,36 @@
 import Button from "./Button";
 import Heading from "./Heading";
+import Spinner from "./Spinner";
 import ProductCard from "../features/products/ProductCard";
 
-const products = [
-  {
-    id: 1,
-    name: "Product 1",
-    price: 100,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400",
-    stock: 10,
-  },
-  {
-    id: 2,
-    name: "Product 2",
-    price: 50,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400",
-    stock: 0,
-  },
-  {
-    id: 3,
-    name: "Product 3",
-    price: 450,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400",
-    stock: 4,
-  },
-];
+import { useGetHomeProducts } from "../features/products/useProducts";
 
 export default function ProductsSec() {
+  const { isLoading, isError, homeProducts, error } = useGetHomeProducts();
+
+  if (isLoading)
+    return (
+      <div className="py-20 flex justify-center items-center">
+        <Spinner />
+      </div>
+    );
+
+  if (isError) {
+    return (
+      <div className="py-20 flex flex-col justify-center items-center">
+        <h4 className="text-2xl font-medium text-main">Something went wrong</h4>
+        <p>{error?.message}</p>
+      </div>
+    );
+  }
+
   return (
     <section className="px-2 py-20">
       <div className="container mx-auto">
         <Heading>Our Products</Heading>
-        {products.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {products.map((product) => (
+        {homeProducts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {homeProducts.map((product) => (
               <ProductCard key={product?.id} product={product} />
             ))}
           </div>

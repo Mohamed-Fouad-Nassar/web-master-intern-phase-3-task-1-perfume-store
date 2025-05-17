@@ -1,4 +1,5 @@
 import Button from "./Button";
+import Spinner from "./Spinner";
 import { useModalContext } from "./Modal";
 
 export default function ConfirmDelete({
@@ -26,7 +27,14 @@ export default function ConfirmDelete({
             close();
           }}
         >
-          Yes, Delete it!
+          {disabled ? (
+            <div className="flex items-center gap-2">
+              <Spinner size={5} />
+              <span>Deleting...</span>
+            </div>
+          ) : (
+            "Yes, Delete it!"
+          )}
         </Button>
         <Button onClick={close} disabled={disabled} variation="secondary">
           Cancel

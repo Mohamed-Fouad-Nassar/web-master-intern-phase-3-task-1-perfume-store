@@ -11,7 +11,7 @@ export default function Button({
   variation,
   as = "button",
 }) {
-  const style = `cursor-pointer border rounded ${
+  const style = `cursor-pointer border rounded disabled:cursor-not-allowed disabled:opacity-60 ${
     size === "sm"
       ? "text-sm px-2 py-1"
       : size === "lg"

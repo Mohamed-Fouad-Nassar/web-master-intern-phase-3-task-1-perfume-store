@@ -9,7 +9,9 @@ export default function DashLayout() {
       <Header />
       <div className="min-h-screen flex items-start pt-20 pb-4">
         <Sidebar />
-        <main className="min-h-[300vh] flex-1 px-6 py-4 overflow-x-hidden">
+        {/* <main className="min-h-[300vh] flex-1 px-6 py-4 overflow-x-hidden"> */}
+        {/* <main className="min-h-[calc(100vh-100px)] flex-1 px-6 py-4 overflow-x-hidden"> */}
+        <main className="flex-1 px-6 py-4 overflow-x-hidden">
           <Outlet />
         </main>
       </div>

@@ -6,13 +6,11 @@ import ViewProduct from "./ViewProduct";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 
 import { formatPrice } from "../../utils/helpers";
+import { useDeleteProduct } from "./useProducts";
 
 export default function ProductRow({ product }) {
   const { id, image, name, price, stock } = product;
-
-  const deleteProduct = () => {
-    console.log(`Deleting Product with id #${id}...`);
-  };
+  const { isDeleting, deleteProduct } = useDeleteProduct(id);
 
   return (
     <tr className="text-center border-b border-stone-800 *:py-2 *:px-1.5">
@@ -58,8 +56,9 @@ export default function ProductRow({ product }) {
           </Modal.Window>
           <Modal.Window name="delete-product">
             <ConfirmDelete
+              disabled={isDeleting}
               resourceName="Product"
-              handleDelete={deleteProduct}
+              handleDelete={() => deleteProduct(id)}
             />
           </Modal.Window>
         </Modal>

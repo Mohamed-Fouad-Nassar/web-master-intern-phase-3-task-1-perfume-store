@@ -26,7 +26,7 @@ export default function HeroSec() {
           <img
             src={landingImg}
             alt="landing-image-perfume"
-            className="max-w-full"
+            className="max-w-full mx-auto"
           />
         </div>
       </div>

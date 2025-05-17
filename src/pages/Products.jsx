@@ -1,92 +1,32 @@
 import Heading from "../ui/Heading";
+import Spinner from "../ui/Spinner";
 import Breadcrumb from "../ui/Breadcrumb";
-import Pagination from "../ui/Pagination";
+// import Pagination from "../ui/Pagination";
 import ProductCard from "../features/products/ProductCard";
 
-const products = [
-  {
-    id: 1,
-    name: "Product 1",
-    price: 100,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400",
-    stock: 10,
-  },
-  {
-    id: 2,
-    name: "Product 2",
-    price: 50,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400",
-    stock: 0,
-  },
-  {
-    id: 3,
-    name: "Product 3",
-    price: 450,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400",
-    stock: 4,
-  },
-  {
-    id: 4,
-    name: "Product 4",
-    price: 400,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400",
-    stock: 40,
-  },
-  {
-    id: 5,
-    name: "Product 5",
-    price: 50,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400",
-    stock: 200,
-  },
-  {
-    id: 6,
-    name: "Product 6",
-    price: 450,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400",
-    stock: 7,
-  },
-  // {
-  //   id: 7,
-  //   name: "Product 7",
-  //   price: 700,
-  //   description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-  //   image: "https://placehold.co/600x400",
-  //   stock: 9,
-  // },
-  // {
-  //   id: 8,
-  //   name: "Product 8",
-  //   price: 50,
-  //   description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-  //   image: "https://placehold.co/600x400",
-  //   stock: 0,
-  // },
-  // {
-  //   id: 9,
-  //   name: "Product 9",
-  //   price: 450,
-  //   description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-  //   image: "https://placehold.co/600x400",
-  //   stock: 4,
-  // },
-  // {
-  //   id: 10,
-  //   name: "Product 10",
-  //   price: 450,
-  //   description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-  //   image: "https://placehold.co/600x400",
-  //   stock: 4,
-  // },
-];
+// import { products } from "../data/products";
+
+import { useGetProducts } from "../features/products/useProducts";
 
 export default function Products() {
+  const { isLoading, isError, data: products, error } = useGetProducts();
+
+  if (isLoading)
+    return (
+      <div className="py-60 flex justify-center items-center">
+        <Spinner />
+      </div>
+    );
+
+  if (isError) {
+    return (
+      <div className="py-20 flex flex-col justify-center items-center">
+        <h4 className="text-2xl font-medium text-main">Something went wrong</h4>
+        <p>{error?.message}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto px-2 pt-20 pb-10">
       <Breadcrumb cur="Products" links={[{ title: "Home", href: "/" }]} />
@@ -104,7 +44,7 @@ export default function Products() {
         </p>
       )}
 
-      <Pagination />
+      {/* <Pagination /> */}
     </div>
   );
 }

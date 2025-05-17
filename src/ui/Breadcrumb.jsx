@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react";
 export default function Breadcrumb({ cur, links }) {
   return (
     <nav className="mt-2">
-      <ol className="flex items-center gap-1 capitalize text-gray-200">
+      <ol className="text-sm flex items-center gap-1 capitalize text-gray-200">
         {links?.map(({ title, href }) => (
           <Fragment key={title}>
             <li className="flex items-center gap-1">

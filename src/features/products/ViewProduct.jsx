@@ -1,4 +1,5 @@
 import DetailsList from "../../ui/DetailsList";
+
 import { formatPrice } from "../../utils/helpers";
 
 export default function ViewProduct({ product }) {
@@ -7,7 +8,7 @@ export default function ViewProduct({ product }) {
   return (
     <section className="flex flex-col lg:flex-row lg:items-center lg:gap-6 *:flex-1">
       <div>
-        <img src={image} alt={`${name} image`} />
+        <img src={image} alt={`${name} image`} className="mx-auto max-w-40" />
       </div>
 
       <DetailsList>

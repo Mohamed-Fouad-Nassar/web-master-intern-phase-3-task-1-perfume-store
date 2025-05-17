@@ -1,28 +1,28 @@
 import Table from "../../ui/Table";
 import ProductRow from "./ProductRow";
+import Spinner from "../../ui/Spinner";
 
-const products = [
-  {
-    id: 1,
-    name: "Product 1",
-    price: 100,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400/2d2d2d/00ff00",
-    stock: 10,
-    createdAt: new Date(),
-  },
-  {
-    id: 2,
-    name: "Product 2",
-    price: 200,
-    description: "Loream ipsum dolor sit amet consectetur adipisicing elit.",
-    image: "https://placehold.co/600x400/2d2d2d/ff0000",
-    stock: 20,
-    createdAt: new Date(),
-  },
-];
+import { useGetProducts } from "./useProducts";
 
 export default function ProductsTable() {
+  const { isLoading, isError, data: products, error } = useGetProducts();
+
+  if (isLoading)
+    return (
+      <div className="py-20 flex justify-center items-center">
+        <Spinner />
+      </div>
+    );
+
+  if (isError) {
+    return (
+      <div className="py-20 flex flex-col justify-center items-center">
+        <h4 className="text-2xl font-medium text-main">Something went wrong</h4>
+        <p>{error?.message}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="overflow-x-auto">
       <Table>

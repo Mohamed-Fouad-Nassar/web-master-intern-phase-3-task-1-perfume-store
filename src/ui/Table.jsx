@@ -10,7 +10,7 @@ function Head({ titles, actions = false }) {
 
         {actions === true && (
           <th scope="col" className="px-6 py-4">
-            <span className="sr-only">options</span>
+            options
           </th>
         )}
       </tr>
@@ -19,7 +19,7 @@ function Head({ titles, actions = false }) {
 }
 
 function Body({ data, render }) {
-  if (!data.length)
+  if (!data || data?.length === 0)
     return (
       <tbody>
         <tr>

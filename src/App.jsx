@@ -46,8 +46,11 @@ export default function App() {
           <Route path="products" element={<ProductsDash />} />
           <Route path="products/new" element={<CreateProduct />} />
           <Route path="products/:id/edit" element={<EditProduct />} />
+
           <Route path="orders" element={<OrdersDash />} />
+
           <Route path="users" element={<UsersDash />} />
+
           <Route path="settings" element={<SettingsDash />} />
         </Route>
 

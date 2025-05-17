@@ -4,12 +4,6 @@ import Button from "../ui/Button";
 import Heading from "../ui/Heading";
 import ProductsTable from "../features/products/ProductsTable";
 
-{
-  /* <p className="italic text-center text-lg text-white/80">
-  No products found at this moment
-</p> */
-}
-
 export default function ProductsDash() {
   return (
     <>
